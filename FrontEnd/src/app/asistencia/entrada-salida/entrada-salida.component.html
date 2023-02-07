@@ -1,0 +1,55 @@
+<h1>Registro entrada y salida</h1>
+<div style="text-align: center;">
+
+    <!-- <form novalidate [formGroup]="author">
+        <div class="form-group">
+            <mat-form-field appearance="fill">
+                <mat-label>Clave empleado</mat-label>
+                <input matInput placeholder="Escribe tu Id" formControlName="id">
+              </mat-form-field>
+            <div
+              class="error"
+              style="color: red;"
+              *ngIf="author.get('name')!.hasError('required') && author.get('name')!.touched"
+            >
+              Nombre requerido
+            </div>
+        </div>
+    </form> -->
+    
+    <table mat-table [dataSource]="listTurnos" class="table table-hover">
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef> Id</th>
+          <td mat-cell *matCellDef="let element"> {{element.Id}} </td>
+        </ng-container>
+      
+        <ng-container matColumnDef="nombre">
+          <th mat-header-cell *matHeaderCellDef> Nombre </th>
+          <td mat-cell *matCellDef="let element"> {{element.Nombre}} </td>
+        </ng-container>
+    
+        <ng-container matColumnDef="fechaEntrada">
+            <th mat-header-cell *matHeaderCellDef> </th>
+            <td mat-cell *matCellDef="let element"> 
+                <button mat-raised-button color="primary" 
+                [disabled]="(element.FechaEntrada)" (click)="registrarEntrada(element.Id)">
+                Registrar Entrada</button>
+            </td>
+        </ng-container>
+    
+        <ng-container matColumnDef="fechaSalida">
+        <th mat-header-cell *matHeaderCellDef> </th>
+        <td mat-cell *matCellDef="let element"> 
+            
+            <button mat-raised-button color="accent" 
+            [disabled]="(!element.FechaEntrada&&!element.fechaSalida)"
+            (click)="registrarSalida(element.Id)">
+            Registrar Salida</button>
+        </td>
+        </ng-container>
+      
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    
+</div>

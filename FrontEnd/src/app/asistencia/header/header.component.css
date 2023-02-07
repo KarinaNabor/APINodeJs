@@ -1,0 +1,14 @@
+.color-nav{
+    background: mediumorchid;
+}
+.text-title{
+    font-family: fantasy;
+    color:goldenrod;
+    font-size: xx-large;
+}
+.items-location{
+    justify-content: center;
+    font-family: monospace;
+    font-variant: ordinal;
+    font-weight: bold;
+}
